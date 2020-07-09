@@ -1,0 +1,102 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: cursive;
+}
+body {
+    background: linear-gradient(to right, #9cff75, #cbfcab);
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    overflow: hidden;
+    margin-top: -50px;
+}
+h1 {
+    /* display: block; */
+    color: black;
+    font-size: 60px;
+    animation: typing 3s steps(21);
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    /* border-right: 4px solid black; */
+    /* width: 21ch; */
+}
+.clock {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+}
+.clock .number {
+    --rotation:0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.clock .number1{ --rotation: 30deg;}
+.clock .number2{ --rotation: 60deg;}
+.clock .number3{ --rotation: 90deg;}
+.clock .number4{ --rotation: 120deg;}
+.clock .number5{ --rotation: 150deg;}
+.clock .number6{ --rotation: 180deg;}
+.clock .number7{ --rotation: 210deg;}
+.clock .number8{ --rotation: 240deg;}
+.clock .number9{ --rotation: 270deg;}
+.clock .number10{ --rotation: 300deg;}
+.clock .number11{ --rotation: 330deg;}
+
+.clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 1;
+    background: black;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+.clock::after{
+    content: "";
+    position: absolute;
+    background: black;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    border-radius: 50%;
+}
+.clock .hand.second {
+    width: 5px;
+    height: 42%;
+    background: red;
+}
+.clock .hand.minute {
+    width: 8px;
+    height: 40%;
+    background: black;
+}
+.clock .hand.hour {
+    width: 10px;
+    height: 30%;
+    background: black;
+}
+
+
+@keyframes typing {
+    0%{width : 0ch; text-align: left;}
+    100%{width : 21ch; text-align: center;}
+}
